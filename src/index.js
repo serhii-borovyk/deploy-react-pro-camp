@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './App';
 import { Provider } from "react-redux";
 import { applyMiddleware, compose, createStore } from "redux";
-import reducer from "./reducers";
+import reducer from "./redux/reducers";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import { createMuiTheme } from "@material-ui/core";
 import thunk from 'redux-thunk';

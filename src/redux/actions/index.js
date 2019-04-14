@@ -1,5 +1,5 @@
 import { GET_FILMS, RESET_SELECTED_FILM, SAVE_FILM, SELECT_FILM } from "../types";
-import axios from 'axios';
+import axios from 'axios/index';
 
 
 export const getFilms = () => ({
