@@ -10,7 +10,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware'
 
 const theme = createMuiTheme({
-  palette: {type: 'dark'},
+  // palette: {type: 'dark'},
   typography: {useNextVariants: true},
 });
 

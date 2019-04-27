@@ -1,43 +1,28 @@
 import React from 'react';
-import {withStyles} from "@material-ui/core";
-import classes from 'BurgerIngredient.css'
 import PropTypes from 'prop-types'
+import { Bacon, BreadBottom, BreadTop, Cheese, Meat, Salad, Seeds1, Seeds2 } from "./StyledIngredients";
 
 const BurgerIngredient = (props) => {
-  let ingredient = null;
   switch (props.type) {
     case ('bread-bottom'):
-      ingredient = <div className={classes.BreadBottom}></div>;
-      break;
-    case ('bread-top'):
-      ingredient = (
-        <div className={classes.BreadTop}>
-          <div className={classes.Seeds1}></div>
-          <div className={classes.Seeds2}></div>
-        </div>
-      )
-      break;
+      return <BreadBottom/>
     case ('meat'):
-      ingredient = <div className={classes.Meat}></div>
-      break;
+      return <Meat/>
     case ('cheese'):
-      ingredient = <div className={classes.Cheese}></div>
-      break;
+      return <Cheese/>
     case ('salad'):
-      ingredient = <div className={classes.Salad}></div>
-      break;
+      return <Salad/>
     case ('bacon'):
-      ingredient = <div className={classes.Bacon}></div>
-      break;
+      return <Bacon/>
+    case ('bread-top'):
+      return <BreadTop><Seeds1/><Seeds2/></BreadTop>
     default:
-      ingredient = null
-      break;
+      return null;
   }
-  return ingredient;
 };
 
 BurgerIngredient.propTypes = {
   type: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(BurgerIngredient);
+export default BurgerIngredient;
