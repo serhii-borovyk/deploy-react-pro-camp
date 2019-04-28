@@ -1,24 +1,40 @@
 import * as types from "../types";
 
 const initialState = {
-  filmList: [],
-  selectedFilm: null
+  ingredients: {
+    salad: {
+      count: 0,
+      price: 0.5
+    },
+    bacon: {
+      count: 0,
+      price: 0.7
+    },
+    cheese: {
+      count: 0,
+      price: 0.4
+    },
+    meat: {
+      count: 0,
+      price: 1.3
+    }
+  },
+  totalPrice: 0
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_FILMS_FULFILLED:
-      return {...state, filmList: action.payload.data.Search}
-    case types.SELECT_FILM:
-      return {...state, selectedFilm: action.payload}
-    case types.SAVE_FILM:
-      const savedFilm = action.payload
-      return {...state,
-        selectedFilm: null,
-        filmList: state.filmList.map(e=>e.imdbID===savedFilm.imdbID ? savedFilm : e)
+    case types.ADD_INGREDIENTS:
+      const ingredientType = action.payload;
+      const ingredient = state.ingredients[ingredientType];
+      return {
+        ...state,
+        ingredients: {
+          ...state.ingredients,
+          [ingredientType]: ingredient.count + 1
+        },
+        totalPrice: state.totalPrice + ingredient.price
       }
-    case types.RESET_SELECTED_FILM:
-      return {...state, selectedFilm: null}
     default:
       return state;
   }

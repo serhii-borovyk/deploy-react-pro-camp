@@ -1,24 +1,17 @@
-import React, {Component, Fragment} from 'react';
+import React, { Fragment } from 'react';
 import Burger from "../../components/Burger/Burger";
+import BuildControls from "../../components/Burger/BuildControls/BuildControls";
+import { connect } from 'react-redux';
 
-class BurgerBuilder extends Component {
-  state = {
-    ingredients: {
-      salad: 0,
-      bacon: 0,
-      cheese: 0,
-      meat: 0
-    }
-  }
+const BurgerBuilder = ({ingredients}) => (
+  <Fragment>
+    <Burger ingredients={ingredients}/>
+    <BuildControls/>
+  </Fragment>
+);
 
-  render() {
-    return (
-      <Fragment>
-        <Burger ingredients={this.state.ingredients}/>
-        <div>Build Controls</div>
-      </Fragment>
-    );
-  }
-}
+const mapStateToProps = state => ({
+  ingredients: state.ingredients,
+})
 
-export default BurgerBuilder;
+export default connect(mapStateToProps)(BurgerBuilder);

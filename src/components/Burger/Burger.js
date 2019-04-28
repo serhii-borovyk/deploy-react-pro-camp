@@ -26,10 +26,10 @@ const BurgerBody = styled.div`
   }
 `
 
-const Burger = ({ ingredients }) => {
+const Burger = ({ ingredients = {} }) => {
   let transformedIngredients = Object.keys(ingredients)
     .map(key =>
-      [...Array(ingredients[key])]
+      [...Array(ingredients[key].count)]
         .map((_, i) =>
           <BurgerIngredient key={key + i} type={key}/>))
     .reduce((acc, arr)=> acc.concat(arr), [])
