@@ -19,7 +19,7 @@ const initialState = {
       price: 1.3
     }
   },
-  totalPrice: 0
+  totalPrice: 4
 }
 
 export default (state = initialState, action) => {

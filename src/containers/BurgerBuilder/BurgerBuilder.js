@@ -3,6 +3,8 @@ import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import { connect } from 'react-redux';
 import * as PropTypes from "prop-types";
+import Modal from "../../components/UI/Modal/Modal";
+import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 
 class BurgerBuilder extends Component {
   getDisabledInfo = () => {
@@ -18,6 +20,9 @@ class BurgerBuilder extends Component {
     let { ingredients, totalPrice} = this.props;
     return (
       <Fragment>
+        <Modal>
+          <OrderSummary ingredients={ingredients} />
+        </Modal>
         <Burger ingredients={ingredients}/>
         <BuildControls
           price={totalPrice}

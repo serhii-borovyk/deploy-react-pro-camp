@@ -9,6 +9,7 @@ const BurgerBody = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
+  overflow-y: auto;
 
   @media (min-width: 500px) and (min-height: 400px) {
     width: 350px;
