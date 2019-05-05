@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import * as React, { Fragment } from 'react';
 import styled from "styled-components";
 import Backdrop from "../Backdrop/Backdrop";
 import { connect } from "react-redux";

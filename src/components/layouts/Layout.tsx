@@ -1,5 +1,6 @@
-import React, {Fragment} from "react";
-import {withStyles} from "@material-ui/core";
+import * as React from "react";
+import { Fragment } from "react";
+import { withStyles } from "@material-ui/core";
 
 const styles = {
   content: {
@@ -7,7 +8,7 @@ const styles = {
   }
 }
 
-const Layout = ({classes, children}) => (
+const Layout = ({ classes, children }) => (
   <Fragment>
     <div>
       Toolbar, SideDrawer, Backdrop

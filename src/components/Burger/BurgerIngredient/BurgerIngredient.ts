@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types'
 import { Bacon, BreadBottom, BreadTop, Cheese, Meat, Salad, Seeds1, Seeds2 } from "./StyledIngredients";
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 import styled from "styled-components"
 

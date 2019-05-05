@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Layout from "./components/layouts/Layout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 

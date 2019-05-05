@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import * as React, { Fragment } from 'react';
 import BuildControl from "./BuildControl";
 import styled from "styled-components";
 import { connect } from "react-redux";
