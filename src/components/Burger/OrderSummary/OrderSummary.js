@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
 import styled from "styled-components";
+import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { hideModal } from "../../../redux/actions";
 
 const Capitalize = styled.span` text-transform: capitalize `
 
 
-const OrderSummary = ({ingredients}) => {
+const OrderSummary = ({ ingredients, hideModal }) => {
   const summary = Object.keys(ingredients)
     .map(key =>
       <li key={key}>
@@ -20,8 +23,10 @@ const OrderSummary = ({ingredients}) => {
         {summary}
       </ul>
       <p>Continue to checkout?</p>
+      <Button onClick={()=>alert('You continue!')} variant="contained" color="primary">Accept</Button>
+      <Button onClick={hideModal} variant="contained" color="secondary">Decline</Button>
     </Fragment>
   );
 };
 
-export default OrderSummary;
+export default connect(null, { hideModal })(OrderSummary);

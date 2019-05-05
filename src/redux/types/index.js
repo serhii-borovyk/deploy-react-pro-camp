@@ -1,2 +1,4 @@
 export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
 export const REMOVE_INGREDIENTS = 'REMOVE_INGREDIENTS';
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';

@@ -19,7 +19,8 @@ const initialState = {
       price: 1.3
     }
   },
-  totalPrice: 4
+  totalPrice: 4,
+  showModal: false
 }
 
 export default (state = initialState, action) => {
@@ -58,6 +59,12 @@ export default (state = initialState, action) => {
         },
         totalPrice: state.totalPrice - ingredient.price
       };
+    }
+    case types.SHOW_MODAL: {
+      return {...state, showModal: true};
+    }
+    case types.HIDE_MODAL: {
+      return {...state, showModal: false};
     }
     default:
       return state;

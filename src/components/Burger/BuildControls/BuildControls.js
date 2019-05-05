@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import BuildControl from "./BuildControl";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { showModal } from "../../../redux/actions";
 
 const OrderButton = styled.button`
   background-color: #DAD735;
@@ -56,7 +58,7 @@ function anyFalse(disabledInfo) {
     .every(value => value === true);
 }
 
-const BuildControls = ({ disabledInfo, price }) => (
+const BuildControls = ({ disabledInfo, price, showModal }) => (
   <Fragment>
     <p>Current Price: {price.toFixed(2)}</p>
     {controls.map(ctrl =>
@@ -65,8 +67,13 @@ const BuildControls = ({ disabledInfo, price }) => (
         type={ctrl.type}
         disabled={disabledInfo[ctrl.type]}
       />)}
-    <OrderButton disabled={anyFalse(disabledInfo)}>ORDER NOW</OrderButton>
+    <OrderButton
+      onClick={showModal}
+      disabled={anyFalse(disabledInfo)}>
+      ORDER NOW
+    </OrderButton>
   </Fragment>
 );
 
-export default BuildControls;
+
+export default connect(null, { showModal })(BuildControls);

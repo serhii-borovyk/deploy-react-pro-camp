@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from "styled-components";
+import Backdrop from "../Backdrop/Backdrop";
+import { connect } from "react-redux";
 
 const Body = styled.div`
     position: fixed;
@@ -23,10 +25,21 @@ const Body = styled.div`
 `
 
 
-const Modal = (props) => (
-  <Body>
-    {props.children}
-  </Body>
+const Modal = ({ showModal, children }) => (
+  <Fragment>
+    {showModal && (
+      <Fragment>
+        <Backdrop/>
+        <Body> {children} </Body>
+      </Fragment>
+    )}
+  </Fragment>
 );
 
-export default Modal;
+
+const mapStateToProps = state => ({
+  showModal: state.showModal
+})
+
+
+export default connect(mapStateToProps)(Modal);
