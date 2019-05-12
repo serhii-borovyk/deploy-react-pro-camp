@@ -1,12 +1,18 @@
-import * as React, { Component, Fragment } from 'react';
+import * as React from 'react';
+import { Component, Fragment } from 'react';
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import { connect } from 'react-redux';
-import * as PropTypes from "prop-types";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
+import { IIngredient } from "../../redux/reducers";
 
-class BurgerBuilder extends Component {
+interface IBurgerBuilder {
+  ingredients: Map<string, IIngredient>,
+  totalPrice: number;
+}
+
+class BurgerBuilder extends Component<IBurgerBuilder> {
   getDisabledInfo = () => {
     const { ingredients } = this.props;
     const disabledInfo = { ...ingredients }
@@ -17,11 +23,11 @@ class BurgerBuilder extends Component {
   };
 
   render() {
-    let { ingredients, totalPrice} = this.props;
+    let { ingredients, totalPrice } = this.props;
     return (
       <Fragment>
         <Modal>
-          <OrderSummary ingredients={ingredients} />
+          <OrderSummary ingredients={ingredients}/>
         </Modal>
         <Burger ingredients={ingredients}/>
         <BuildControls
@@ -32,8 +38,6 @@ class BurgerBuilder extends Component {
     );
   }
 }
-
-BurgerBuilder.propTypes = { ingredients: PropTypes.any }
 
 const mapStateToProps = state => ({
   ingredients: state.ingredients,

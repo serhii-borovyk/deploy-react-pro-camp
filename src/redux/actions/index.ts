@@ -1,18 +1,24 @@
-import { ADD_INGREDIENTS, HIDE_MODAL, REMOVE_INGREDIENTS, SHOW_MODAL } from "../types";
+import {
+  ActionTypes,
+  ADD_INGREDIENTS,
+  AddIngredientAction,
+  HIDE_MODAL, HideModalAction,
+  REMOVE_INGREDIENTS, RemoveIngredientAction,
+  SHOW_MODAL, ShowModalAction
+} from "../types";
 
-
-export const addIngredient = type => ({
+export const addIngredient = (type: string): AddIngredientAction => ({
   type: ADD_INGREDIENTS,
   payload: type
-})
-export const removeIngredient = type => ({
+});
+export const removeIngredient = (type: string): RemoveIngredientAction => ({
   type: REMOVE_INGREDIENTS,
   payload: type
 })
-export const showModal = () => ({
+export const showModal = (): ShowModalAction => ({
   type: SHOW_MODAL,
 })
-export const hideModal = () => ({
+export const hideModal = (): HideModalAction  => ({
   type: HIDE_MODAL,
 })
 

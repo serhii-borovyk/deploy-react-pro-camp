@@ -14,11 +14,13 @@ const theme = createMuiTheme({
   typography: {useNextVariants: true},
 });
 
+// @ts-ignore
+const { __REDUX_DEVTOOLS_EXTENSION__ } = window;
 const store = createStore(
   reducer,
   compose(
     applyMiddleware(...[thunk, promise]),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    __REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__())
 );
 
 ReactDOM.render(

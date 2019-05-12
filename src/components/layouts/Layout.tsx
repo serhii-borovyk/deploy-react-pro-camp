@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Fragment } from "react";
+import { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core";
 
 const styles = {
@@ -8,15 +8,25 @@ const styles = {
   }
 }
 
-const Layout = ({ classes, children }) => (
-  <Fragment>
-    <div>
-      Toolbar, SideDrawer, Backdrop
-    </div>
-    <main className={classes.content}>
-      {children}
-    </main>
-  </Fragment>
-)
+class Layout extends Component<Props> {
+  render() {
+    let { classes, children } = this.props;
+    return (
+      <Fragment>
+        <div>
+          Toolbar, SideDrawer, Backdrop
+        </div>
+        <main className={classes.content}>
+          {children}
+        </main>
+      </Fragment>
+    );
+  }
+}
 
 export default withStyles(styles)(Layout);
+
+interface Props {
+  classes: { content: string },
+  children: any
+};
